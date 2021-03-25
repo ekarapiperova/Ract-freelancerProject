@@ -1,11 +1,12 @@
-nav .listItem a {
-    color: white;
+nav .listItem {
+    color: rgb(6, 11, 29);
     text-decoration: none;
+    size: 20px;
   }
   
   
   
-  nav .listItem, footer .listItem {
+  nav .listItem {
     display: inline-block;
     height: auto;
     margin-right: 2%;
@@ -20,14 +21,14 @@ nav .listItem a {
   nav .listItem:not(:first-child) {
     padding: 2%;
     margin-top: 1.5%;
-    border-top: 2px solid #ffa000;
+    border-top: 2px solid #2729a0;
   }
   
   
   
   nav .listItem:hover {
     border-top: none;
-    border-bottom: 2px solid #ffa000;
+    border-bottom: 2px solid  #2729a0;
     font-weight: bold;
   }
   

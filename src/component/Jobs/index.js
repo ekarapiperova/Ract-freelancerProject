@@ -1,5 +1,7 @@
 import React from 'react'
 import Job from '../Job'
+
+import style from './Jobs.index.css'
 class Jobs extends React.Component{
     constructor(props){
         super(props)
@@ -19,10 +21,11 @@ class Jobs extends React.Component{
         this.getJobs()
         .then(res=>this.setState({jobs:res}))
     }
+    
     render(){
         return(
-            <div>
-            <ul className="jobs-list">
+            <div className={style.jobslist}>
+            <ul>
                    {this.state.jobs.map(x=>
                     <Job 
                     key={x._id}  

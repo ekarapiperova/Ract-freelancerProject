@@ -5,14 +5,15 @@ import {Router, Switch} from 'react-router'
 import Jobs from './component/Jobs';
 
 import style from './App.css'
+import JobDetail from './component/JobDetail';
 function App() {
   return (
     <div className={style.App}>
       
       <Header/>
-      <div className>
+     
         <Jobs/>
-      </div>
+ 
         
       <Footer/>
       

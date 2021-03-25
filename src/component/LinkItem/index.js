@@ -3,7 +3,7 @@ import style from './Link.module.css';
 const LinkItem = (props) => {
     return (
         <li className={style.listItem}>
-            <span>{props.children}</span>
+            {props.children}
         </li>
     );
 }
