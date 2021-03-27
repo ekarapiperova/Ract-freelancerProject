@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './component/Header';
 import Footer from './component/Footer';
-import {Router, Switch} from 'react-router'
+import {Route, Switch} from 'react-router'
 import Jobs from './component/Jobs';
 
 import style from './App.css'
@@ -11,9 +11,11 @@ function App() {
     <div className={style.App}>
       
       <Header/>
-     
-        <Jobs/>
- 
+      <Switch>
+        <Route path="/" exact component={Jobs}/>
+      <Route path="/job/detail/:id" exact component={JobDetail}/>
+
+      </Switch>
         
       <Footer/>
       

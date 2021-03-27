@@ -10,13 +10,11 @@ const Job = ({ id, title, category, money }) => {
                  <p className="img"><img src="" alt="ima" /></p>
                 </div>
                
-                
-
                 <p>Category: {category}</p>
                 <p className="monety">{money} $</p>
                
                     <Link to="#"><button className="button"> Apply</button></Link>
-                    <Link to={`/jobs/details/${id}`}><button className="button">More Info</button></Link>
+                    <Link to={`/job/detail/${id}`}><button className="button">More Info</button></Link>
 
                 
             </div>
