@@ -27,6 +27,12 @@ const JobSchema=new Schema({
             required:true 
         
     },
+    category:{
+        
+        type:String,
+        required:true 
+    
+},
     creator:{
         type:ObjectId,
             ref:'User'

@@ -21,16 +21,17 @@ module.exports = {
         const { description } = req.body;
         const { money } = req.body;
         const {toData}=req.body;
-        const { _id } = req.user;
-        console.log(req);
+        const {category}=req.body;
+        const { _id } = "req.user";
+        console.log(req.body);
 
-        models.Jobs.create({title,description, money,toData,creator: _id })
-            .then((createdJob) => {
+        models.Jobs.create({title,description, money,toData,category,creator: _id })
+           /* .then((createdJob) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { jobsList: createdJob } }),
                     models.Jobs.findOne({ _id: createdJob._id })
                 ]);
-            })
+            })*/
             .then(([modified, jobs]) => {
                 res.send(jobs);
             })
