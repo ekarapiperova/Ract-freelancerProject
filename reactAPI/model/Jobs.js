@@ -34,8 +34,8 @@ const JobSchema=new Schema({
     
 },
     creator:{
-        type:ObjectId,
-            ref:'User'
+        type:String,
+        required:true 
     }
 
 })

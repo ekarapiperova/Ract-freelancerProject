@@ -22,10 +22,10 @@ module.exports = {
         const { money } = req.body;
         const {toData}=req.body;
         const {category}=req.body;
-        const { _id } = "req.user";
+        const { username } = req.body;
         console.log(req.body);
 
-        models.Jobs.create({title,description, money,toData,category,creator: _id })
+        models.Jobs.create({title,description, money,toData,category, username })
            /* .then((createdJob) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { jobsList: createdJob } }),

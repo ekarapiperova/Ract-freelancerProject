@@ -1,12 +1,18 @@
-const CreateJob=({history})=>{
+import { useState,useEffect } from "react";
 
-     const create=(title,description,money,catrgory,data)=>{
+const CreateJob=({username})=>{
+
+       
+        
+
+     const create=(title,description,money,catrgory,data,creator)=>{
         let job={
             title: title,
             description: description,
             money: money,
             category: catrgory,
-            toData:data
+            toData:data,
+            creator:creator
         }
         console.log(job);
         return fetch('http://localhost:9999/job/',{
@@ -22,8 +28,8 @@ const CreateJob=({history})=>{
         
         const {title,description,money,category,data}=e.target;
 
-        create(title.value, description.value, money.value, category.value,data.value)
-        .then(()=>history.push('/'))
+        create(title.value, description.value, money.value, category.value,data.value,username.value)
+        .then(()=>useState.history.push('/'))
 
     }
     return(
@@ -31,6 +37,7 @@ const CreateJob=({history})=>{
         <form onSubmit={onCreateSubmit}>
             <fieldset>
                 <h2>Create Job</h2>
+               
                 <p className="field">
                     <label htmlFor="title">Name</label>
                     <span className="input">
