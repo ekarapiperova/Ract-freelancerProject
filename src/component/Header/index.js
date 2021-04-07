@@ -7,7 +7,7 @@ const Header=()=>{
         <ul>
          <img _ngcontent-webapp-c264="" alt="Freelancer logo" className="LogoImg Small" src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo.svg"/>
           <Link to="/"><LinkItem>Home</LinkItem></Link>
-          <Link to="/jobs"><LinkItem> My Jobs</LinkItem></Link>
+          <Link to="/job/myjobs"><LinkItem> My Jobs</LinkItem></Link>
           <Link to="/profile"><LinkItem>Profile</LinkItem></Link>
           <Link to="/register"><LinkItem>Register</LinkItem></Link>
 

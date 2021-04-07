@@ -18,10 +18,10 @@ module.exports = {
     },
     getByCreator: (req, res, next) => {
       
-        const _id = req.params.id;
-          console.log(_id);      
-         models.Jobs.find({ _id: _id })
-            .then((job) => res.send(job))
+        const creator = req.params.user;
+          console.log(creator);      
+         models.Jobs.find({creator: creator })
+            .then((jobs) => res.send(jobs))
             .catch(next);
     },
 

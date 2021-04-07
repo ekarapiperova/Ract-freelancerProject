@@ -5,6 +5,8 @@ const router = require('express').Router();
 
 router.get('/', controller.job.get);
 router.get('/:id', controller.job.getOne);
+router.get('/myjobs/:user', controller.job.getByCreator);
+
 
 router.post('/',  controller.job.post);
 

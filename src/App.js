@@ -12,6 +12,7 @@ import { auth } from './utils/firebase';
 import Register from './component/RegisterForm';
 import { useEffect, useState } from 'react';
 import Profile from './component/Profile';
+import MyJobs from './component/MyJobs';
 function App() {
 
   const[user,setUser]=useState(null);
@@ -39,7 +40,11 @@ function App() {
       <Route path="/register" exact component={Register}/>
 
       <Route path="/profile" exact component={Profile}/>
-     
+      <Route path="/job/myjobs/" render={props => <MyJobs {...props} {...authInfo} />}/>
+
+
+
+
        
       <Route path="/logout" render={props=>{
         auth.signOut();
