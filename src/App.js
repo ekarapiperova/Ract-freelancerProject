@@ -39,12 +39,12 @@ function App() {
       <Route path="/register" exact component={Register}/>
 
       <Route path="/profile" exact component={Profile}/>
-
+     
        
       <Route path="/logout" render={props=>{
         auth.signOut();
         return<Redirect to='/'/>
-    
+
       }}/>
 
 

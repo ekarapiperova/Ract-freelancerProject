@@ -9,9 +9,18 @@ module.exports = {
             .catch(next);
     },
     getOne: (req, res, next) => {
-        console.log(req);
-        const { _id } = req.body;        
-        models.Jobs.findOne(_id)
+      
+        const _id = req.params.id;
+          console.log(_id);      
+         models.Jobs.findOne({ _id: _id })
+            .then((job) => res.send(job))
+            .catch(next);
+    },
+    getByCreator: (req, res, next) => {
+      
+        const _id = req.params.id;
+          console.log(_id);      
+         models.Jobs.find({ _id: _id })
             .then((job) => res.send(job))
             .catch(next);
     },
@@ -22,17 +31,17 @@ module.exports = {
         const { money } = req.body;
         const {toData}=req.body;
         const {category}=req.body;
-        const { username } = req.body;
+        const { creator } = req.body;
         console.log(req.body);
 
-        models.Jobs.create({title,description, money,toData,category, username })
-           /* .then((createdJob) => {
-                return Promise.all([
-                    models.User.updateOne({ _id }, { $push: { jobsList: createdJob } }),
-                    models.Jobs.findOne({ _id: createdJob._id })
-                ]);
+        models.Jobs.create({title,description, money,toData,category, creator })
+          /*.then((createdJob) => {
+                return (
+                      models.User.updateOne({ _id }, { $push: { jobsList: createdJob } }),
+                   // models.Jobs.findOne({ _id: createdJob._id })
+                )
             })*/
-            .then(([modified, jobs]) => {
+            .then((jobs) => {
                 res.send(jobs);
             })
             .catch(next);

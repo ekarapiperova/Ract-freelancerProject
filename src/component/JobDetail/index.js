@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 const JobDetail = ({ match }) => {
-    const getOne = (_id) => {
-        let url = `http://localhost:9999/job/${_id}`
+    const getOne = (id) => {
+        let url = `http://localhost:9999/job/${id}`
         console.log(match.params.id);
 
         return fetch(url)
@@ -19,12 +19,13 @@ const JobDetail = ({ match }) => {
 
 
     return (
-        <section class="detailsOtherjob">
+        <section key={match.params.id} className="detailsOtherjob">
             <h3>{job.title}</h3>
             <p>{job.category}</p>
             <p>{job.money}$ </p>
             <p>{job.description}</p>
             <p >{job.toData}</p>
+            <p>{job.creator}</p>
         </section>
 
 

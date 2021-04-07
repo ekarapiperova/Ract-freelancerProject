@@ -28,7 +28,7 @@ const CreateJob=({username})=>{
         
         const {title,description,money,category,data}=e.target;
 
-        create(title.value, description.value, money.value, category.value,data.value,username.value)
+        create(title.value, description.value, money.value, category.value,data.value,username)
         .then(()=>useState.history.push('/'))
 
     }
@@ -37,7 +37,7 @@ const CreateJob=({username})=>{
         <form onSubmit={onCreateSubmit}>
             <fieldset>
                 <h2>Create Job</h2>
-               
+              <p>{username}</p>
                 <p className="field">
                     <label htmlFor="title">Name</label>
                     <span className="input">
@@ -79,6 +79,13 @@ const CreateJob=({username})=>{
                         </select>
                         <span className="actions"></span>
                     </span>
+                </p>
+                <p className="field">
+                    <label htmlFor="creator">Creator</label>
+                   
+                        <p type="text" name="creator" id="creator" >{username}</p>
+                        <span className="actions"></span>
+                    
                 </p>
                 <input className="button submit" type="submit"  value="Add Job" />
             </fieldset>

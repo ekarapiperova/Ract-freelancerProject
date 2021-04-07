@@ -1,42 +1,42 @@
 const mongoose = require('mongoose');
-const {Schema,model:Model}=mongoose;
-const{String,Number,ObjectId}=Schema.Types;
+const { Schema, model: Model } = mongoose;
+const { String, Number, ObjectId } = Schema.Types;
 
-const JobSchema=new Schema({
+const JobSchema = new Schema({
 
-    title:{
-        type:String,
-        required:true,
-        unique:true
-
-    },
-    description:{
-        type:String,
-        required:true,
-        maxlength:50
+    title: {
+        type: String,
+        required: true,
+        unique: true
 
     },
-    money:{
-        type:Number,
-        required:true,
-        },
-    
-    toData:{
-        
-            type:String,
-            required:true 
-        
+    description: {
+        type: String,
+        required: true,
+        maxlength: 50
+
     },
-    category:{
-        
-        type:String,
-        required:true 
-    
-},
-    creator:{
-        type:String,
-        required:true 
+    money: {
+        type: Number,
+        required: true,
+    },
+
+    toData: {
+
+        type: String,
+        required: true
+
+    },
+    category: {
+
+        type: String,
+        required: true
+
+    },
+    creator: {
+        type: String,
+        required: true
     }
 
 })
-module.exports=new Model('Jobs',JobSchema)
+module.exports = new Model('Jobs', JobSchema)
