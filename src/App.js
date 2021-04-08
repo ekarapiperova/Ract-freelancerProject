@@ -13,6 +13,7 @@ import Register from './component/RegisterForm';
 import { useEffect, useState } from 'react';
 import Profile from './component/Profile';
 import MyJobs from './component/MyJobs';
+import EditJob from './component/EditJob';
 function App() {
 
   const[user,setUser]=useState(null);
@@ -34,6 +35,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Jobs}/>
       <Route path="/job/detail/:id" exact component={JobDetail}/>
+      <Route path="/job/edit/:id" exact component={EditJob}/>
+
       <Route path="/job/create" render={props => <CreateJob {...props} {...authInfo} />}/>
 
       <Route path="/login" exact component={Login}/>

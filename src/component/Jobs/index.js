@@ -32,7 +32,6 @@ class Jobs extends React.Component{
                     id={x._id}
                     title={x.title}                   
                     money={x.money}
-                    imageURL={x.imageURL}
                     category={x.category}                   
 
                   />)}

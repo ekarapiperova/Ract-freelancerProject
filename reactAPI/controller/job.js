@@ -35,12 +35,6 @@ module.exports = {
         console.log(req.body);
 
         models.Jobs.create({title,description, money,toData,category, creator })
-          /*.then((createdJob) => {
-                return (
-                      models.User.updateOne({ _id }, { $push: { jobsList: createdJob } }),
-                   // models.Jobs.findOne({ _id: createdJob._id })
-                )
-            })*/
             .then((jobs) => {
                 res.send(jobs);
             })
@@ -50,9 +44,13 @@ module.exports = {
     put: (req, res, next) => {
         console.log(req);
         const id = req.params.id;
-        const { description } = req.body;
         const { title } = req.body;
-        models.Jobs.updateOne({ _id: id }, { description },{title})
+        const { description } = req.body;
+        const { money } = req.body;
+        const {toData}=req.body;
+        const {category}=req.body;
+        
+        models.Jobs.updateOne({ _id: id },{title: title, description:description ,money:money ,toData:toData ,category:category })
             .then((updated) => res.send(updated))
             .catch(next)
     },

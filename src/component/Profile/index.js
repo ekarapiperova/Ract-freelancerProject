@@ -1,9 +1,10 @@
 import {Link} from 'react-router-dom'
+import MyJobs from '../MyJobs'
 const Profile=({username})=>{
     return(
         <div>
              <h1>{username}</h1>
-             <Link to='/job/create'>Crate new job</Link>
+              <Link to='/job/create'>Crate new job</Link>
       
 
         </div>

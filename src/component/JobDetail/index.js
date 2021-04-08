@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import style from './index.module.css'
 const JobDetail = ({ match }) => {
+    const id=match.params.id;
     const getOne = (id) => {
         let url = `http://localhost:9999/job/${id}`
         console.log(match.params.id);
@@ -12,21 +15,32 @@ const JobDetail = ({ match }) => {
     let [job, setJob] = useState({});
     useEffect(() => {
 
-        getOne(match.params.id)
+        getOne(id)
             .then(res => setJob(res));
     }, [match]);
 
 
-
+ 
     return (
-        <section key={match.params.id} className="detailsOtherjob">
-            <h3>{job.title}</h3>
-            <p>{job.category}</p>
-            <p>{job.money}$ </p>
-            <p>{job.description}</p>
-            <p >{job.toData}</p>
-            <p>{job.creator}</p>
-        </section>
+       
+        <div key={id} className={style.post}>
+             
+                <div className={style.div}>
+                    <h3> {job.title}</h3> 
+                </div>  
+                <p>Description: {job.description}</p> 
+                <p>Payment: {job.money}</p>            
+                <p>Category: {job.category}</p>
+                <p>For{ job.toData}</p>
+                <p className="money">{job.money} $</p>
+                 <p>{job.creator}</p>
+               
+               <Link to={`/job/edit/${id}`}><button className="button">Edit</button></Link>
+               <Link to={`/job/delete/${id}`}><button className="button">Delete</button></Link>
+
+                
+         
+        </div>
 
 
     )

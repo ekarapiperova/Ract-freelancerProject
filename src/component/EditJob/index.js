@@ -1,22 +1,36 @@
 import { useState,useEffect } from "react";
 
-const CreateJob=({username})=>{
+const EditJob=({match})=>{
 
        
+    const id=match.params.id;
+    const getOne = (id) => {
+        let url = `http://localhost:9999/job/${id}`
         
+        return fetch(url)
+            .then(res => res.json())
+            .catch(error => console.log(error))
+    }
 
-     const create=(title,description,money,catrgory,data,creator)=>{
+    let [job, setJob] = useState({});
+    useEffect(() => {
+
+        getOne(id)
+            .then(res => setJob(res));
+    }, [match]);
+
+     const edit=(title,description,money,catrgory,data)=>{
         let job={
             title: title,
             description: description,
             money: money,
             category: catrgory,
             toData:data,
-            creator:creator
+            
         }
-        console.log(job);
-        return fetch('http://localhost:9999/job/',{
-            method: 'POST',
+      
+        return fetch(`http://localhost:9999/job/${id}`,{
+            method: 'PUT',
             headers:{
                 'Content-Type':   "application/json" 
             },
@@ -24,24 +38,26 @@ const CreateJob=({username})=>{
         })
     
     }
-    const onCreateSubmit=(e)=>{
+    const onSaveSubmit=(e)=>{
         
         const {title,description,money,category,data}=e.target;
 
-        create(title.value, description.value, money.value, category.value,data.value,username)
+        edit(title.value, description.value, money.value, category.value,data.value)
         .then(()=>useState.history.push('/'))
 
     }
     return(
-        <section className="create">
-        <form onSubmit={onCreateSubmit}>
+        <section className="edit">
+        <form onSubmit={onSaveSubmit}>
             <fieldset>
-                <h2>Create Job</h2>
-              <p>{username}</p>
+                <h2>Edit Job</h2>
+              <p>{}</p>
                 <p className="field">
                     <label htmlFor="title">Name</label>
+                  
+                  
                     <span className="input">
-                        <input type="text" name="title" id="title" placeholder="title" />
+                        <input type="text" name="title" id="title" defaultValue={job.title}/>
                         <span className="actions"></span>
                     </span>
                 </p>
@@ -49,28 +65,28 @@ const CreateJob=({username})=>{
                     <label htmlFor="description">Description</label>
                     <span className="input">
                         <textarea rows="4" cols="45" type="text" name="description" id="description"
-                            placeholder="Description"></textarea>
+                            defaultValue={job.description}></textarea>
                         <span className="actions"></span>
                     </span>
                 </p>
                 <p className="field">
                     <label htmlFor="money">Money</label>
                     <span className="input">
-                        <input type="text" name="money" id="money" placeholder="money" />
+                        <input type="text" name="money" id="money" defaultValue={job.money} />
                         <span className="actions"></span>
                     </span>
                 </p>
                 <p className="field">
                     <label htmlFor="data">Data</label>
                     <span className="input">
-                        <input type="text" name="data" id="data" placeholder="data" />
+                        <input type="text" name="data" id="data"defaultValue={job.toData} />
                         <span className="actions"></span>
                     </span>
                 </p>
                 <p className="field">
                     <label htmlFor="category">Category</label>
                     <span className="input">
-                        <select type="text" name="category">
+                        <select type="text" name="category" defaultValue={job.category}>
                             <option value="java">Java</option>
                             <option value="javascript">JavaScript</option>
                             <option value="c">C#</option>
@@ -81,7 +97,7 @@ const CreateJob=({username})=>{
                     </span>
                 </p>
               
-                <input className="button submit" type="submit"  value="Add Job" />
+                <input className="button submit" type="submit"  value="Save" />
             </fieldset>
         </form>
     </section>
@@ -89,4 +105,4 @@ const CreateJob=({username})=>{
     )
     
 }
-export default CreateJob
+export default EditJob
