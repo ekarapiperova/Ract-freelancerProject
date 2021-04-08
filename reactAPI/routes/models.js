@@ -12,6 +12,8 @@ router.post('/',  controller.job.post);
 
 
 router.put('/:id', controller.job.put);
+router.delete('/:id', controller.job.delete);
+
 
 
 module.exports=router;

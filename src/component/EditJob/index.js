@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 
-const EditJob=({match})=>{
+const EditJob=({match,history})=>{
 
        
     const id=match.params.id;
@@ -43,7 +43,13 @@ const EditJob=({match})=>{
         const {title,description,money,category,data}=e.target;
 
         edit(title.value, description.value, money.value, category.value,data.value)
-        .then(()=>useState.history.push('/'))
+        .then(()=>
+        {
+            history.push(`/jobs/details/${id}`)
+            return
+        })
+        
+        
 
     }
     return(

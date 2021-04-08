@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import Profile from './component/Profile';
 import MyJobs from './component/MyJobs';
 import EditJob from './component/EditJob';
+import Delete from './component/Delete';
 function App() {
 
   const[user,setUser]=useState(null);
@@ -25,6 +26,16 @@ function App() {
     isAuthenticated: Boolean(user),
     username: user?.email,
   };
+  const deleteJob=({id})=>{
+    return fetch(`http://localhost:9999/job/${id}`,{
+      method: 'DELETE',
+      headers:{
+          'Content-Type':   "application/json" 
+      },
+   
+  })
+
+  }
 
 
   return (
@@ -35,7 +46,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Jobs}/>
       <Route path="/job/detail/:id" exact component={JobDetail}/>
-      <Route path="/job/edit/:id" exact component={EditJob}/>
+
+      <Route path="/job/edit/:id" render={props => <EditJob {...props} {...authInfo} />} />
 
       <Route path="/job/create" render={props => <CreateJob {...props} {...authInfo} />}/>
 
@@ -46,9 +58,10 @@ function App() {
       <Route path="/job/myjobs/" render={props => <MyJobs {...props} {...authInfo} />}/>
 
 
+ <Route path="/job/delete/:id" render={props=>{<Delete {...props} {...authInfo}  />  }}/>
 
 
-       
+     
       <Route path="/logout" render={props=>{
         auth.signOut();
         return<Redirect to='/'/>
