@@ -41,7 +41,7 @@ function App() {
   return (
     <div className={style.App}>
       
-      <Header/>
+      <Header {...authInfo} />
       
       <Switch>
         <Route path="/" exact component={Jobs}/>

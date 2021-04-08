@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import Job from '../Job';
 import style from './index.module.css'
-const JobDetail = ({ match }) => {
+const JobDetail = ({ match,username }) => {
     const id=match.params.id;
     const getOne = (id) => {
         let url = `http://localhost:9999/job/${id}`
@@ -23,22 +24,25 @@ const JobDetail = ({ match }) => {
  
     return (
        
-        <div key={id} className={style.post}>
-             
-                <div className={style.div}>
-                    <h3> {job.title}</h3> 
-                </div>  
-                <p>Description: {job.description}</p> 
-                <p>Payment: {job.money}</p>            
-                <p>Category: {job.category}</p>
-                <p>For{ job.toData}</p>
-                <p className="money">{job.money} $</p>
-                 <p>{job.creator}</p>
-               
-               <Link to={`/job/edit/${id}`}><button className="button">Edit</button></Link>
-               <Link to={`/job/delete/${id}`}><button className="button">Delete</button></Link>
+        <div>
+             <ul>       
+                 {username}     
+             <Job
+                    key={job._id}  
+                    id={job._id}
+                    title={job.title}                   
+                    money={job.money}
+                    category={job.category}  
+                    creator={job.creator}  
+                    description={job.description}  
+                    toData={job.toData}     
+                    detail={false} 
+                    isCreator={job.creator==username}       
 
-                
+                  />
+               
+
+                 </ul>
          
         </div>
 

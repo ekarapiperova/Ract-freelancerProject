@@ -28,11 +28,13 @@ const MyJobs=({username})=> {
                     <Job 
                     key={x._id}  
                     id={x._id}
-                    title={x.title}                   
+                    title={x.title} 
+                    description={x.description}                  
                     money={x.money}
-                    category={x.category}  
+                    category={x.category} 
+                    toData={x.toData} 
                     creator={x.creator}                 
-
+                    isCreator={true}
                   />)
 }
                 </ul>
