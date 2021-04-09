@@ -1,7 +1,10 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
+import isAuth from "../../isAuth";
+import AuthContext from "../context/AuthContext";
 import style from '../Job/Job.module.css'
 import Form from "../JobForm";
-const CreateJob=({username})=>{
+const CreateJob=()=>{
+    const {username} = useContext (AuthContext );
 
      const create=(title,description,money,catrgory,data,creator)=>{
         let job={
@@ -28,19 +31,17 @@ const CreateJob=({username})=>{
         const {title,description,money,category,data}=e.target;
 
         create(title.value, description.value, money.value, category.value,data.value,username)
-        .then(()=>useState.history.push('/'))
+        .then(()=>useState.history.push('/job/myjobs'))
         
 
     }
     return(
         <Form
         type="Create"
-        action={onCreateSubmit}
-        
-
+        action={onCreateSubmit}     
          />
 
     )
     
 }
-export default CreateJob
+export default isAuth( CreateJob)

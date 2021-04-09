@@ -15,6 +15,9 @@ import Profile from './component/Profile';
 import MyJobs from './component/MyJobs';
 import EditJob from './component/EditJob';
 import Delete from './component/Delete';
+import CustomErrorBoundry from './component/CustomErrorBoundry';
+import AuthContext from './component/context/AuthContext';
+import isAuth from './isAuth';
 function App() {
 
   const[user,setUser]=useState(null);
@@ -40,27 +43,27 @@ function App() {
 
   return (
     <div className={style.App}>
-      
-      <Header {...authInfo} />
-      <div className={style.Container}>
-
+     <AuthContext.Provider value={authInfo}>
+             <Header />
      
+
+      <CustomErrorBoundry>
       <Switch>
         <Route path="/" exact component={Jobs}/>
       <Route path="/job/detail/:id" exact component={JobDetail}/>
 
-      <Route path="/job/edit/:id" render={props => <EditJob {...props} {...authInfo} />} />
+      <Route path="/job/edit/:id" component={isAuth(EditJob)}/>
 
-      <Route path="/job/create" render={props => <CreateJob {...props} {...authInfo} />}/>
+      <Route path="/job/create" component={isAuth(CreateJob)}/>
 
       <Route path="/login" exact component={Login}/>
       <Route path="/register" exact component={Register}/>
 
-      <Route path="/profile" render={props => <Profile {...props} {...authInfo} />}/>
-      <Route path="/job/myjobs/" render={props => <MyJobs {...props} {...authInfo} />}/>
+      <Route path="/profile" component={isAuth(Profile)}/>
+      <Route path="/job/myjobs/" component={isAuth(MyJobs)}/>
 
 
-      <Route path="/job/delete/:id" render={props=>{<Delete {...props} {...authInfo}  />  }}/>
+      <Route path="/job/delete/:id" component={isAuth(Delete)}/>
 
 
      
@@ -71,11 +74,13 @@ function App() {
       }}/>
 
 
-      </Switch>
-         </div>
-      <Footer/>
+      </Switch>  
+      </CustomErrorBoundry>
       
+      <Footer/>
+    </AuthContext.Provider>
     </div>
+
   );
 }
 

@@ -52,7 +52,7 @@ module.exports = {
         
         models.Jobs.updateOne({ _id: id },{title: title, description:description ,money:money ,toData:toData ,category:category })
             .then((updated) => res.send(updated))
-            .catch(next)
+            .catch(next);
     },
 
     delete: (req, res, next) => {

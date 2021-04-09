@@ -1,8 +1,11 @@
 
 import Job from '../Job'
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useContext } from 'react'
+import isAuth from '../../isAuth'
+import AuthContext from '../context/AuthContext';
 
-const MyJobs=({username})=> {
+const MyJobs=()=> {
+    const {username} = useContext(AuthContext);
     const getByCreator = (user) => {
         let url = `http://localhost:9999/job/myjobs/${user}`
     
@@ -24,6 +27,7 @@ const MyJobs=({username})=> {
         return(
            
             <ul>
+                <h1>{username}'s jobs</h1>
                    {jobs!=''?
                     jobs.map(x=>
                     <Job 
@@ -46,4 +50,4 @@ const MyJobs=({username})=> {
         )
     }
 
-export default MyJobs
+export default isAuth(MyJobs)

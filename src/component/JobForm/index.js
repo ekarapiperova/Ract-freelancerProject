@@ -10,12 +10,12 @@ const Form=({type,action,title,description,money,toData,category})=>{
                     <label htmlFor="title">Name</label>
                   
                   
-                    <span className="input">
+                    <span className="input" >
                         <input type="text" name="title" id="title" defaultValue={title}/>
                         <span className="actions"></span>
                     </span>
                 </p>
-                <p className="field">
+                <p className={style.field}>
                     <label htmlFor="description">Description</label>
                     <span className="input">
                         <textarea rows="4" cols="45" type="text" name="description" id="description"
@@ -23,7 +23,7 @@ const Form=({type,action,title,description,money,toData,category})=>{
                         <span className="actions"></span>
                     </span>
                 </p>
-                <p className="field">
+                <p className={style.field}>
                     <label htmlFor="money">Money</label>
                     <span className="input">
                         <input type="text" name="money" id="money" defaultValue={money} />
@@ -33,7 +33,7 @@ const Form=({type,action,title,description,money,toData,category})=>{
                 <p className="field">
                     <label htmlFor="data">Data</label>
                     <span className="input">
-                        <input type="text" name="data" id="data"defaultValue={toData} />
+                        <input type="text" name="data" id="data" defaultValue={toData} />
                         <span className="actions"></span>
                     </span>
                 </p>

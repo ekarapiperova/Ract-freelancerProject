@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react";
+import isAuth from "../../isAuth";
 import style from '../Job/Job.module.css'
 import Form from '../JobForm/index'
 const EditJob=({match,history})=>{
@@ -68,4 +69,4 @@ const EditJob=({match,history})=>{
     )
     
 }
-export default EditJob
+export default isAuth( EditJob)

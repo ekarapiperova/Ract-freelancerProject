@@ -2,25 +2,14 @@ import LinkItem from '../LinkItem';
 import { Link } from 'react-router-dom'
 import style from './Header.module.css';
 import { auth } from '../../utils/firebase';
-import { useEffect } from 'react';
-const Header = ({ isAuthenticated, username }) => {
+import { useEffect ,useContext} from 'react';
+import AuthContext from '../context/AuthContext';
+const Header = () => {
+  const { isAuthenticated, username }=useContext(AuthContext)
   useEffect(() => {
     if (!isAuthenticated) {
       return;
     }
-
-    auth.currentUser.getIdToken()
-      .then(function (idToken) {
-        return fetch('http://localhost:5001', {
-          headers: {
-            'Authorization': idToken
-          }
-        })
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
 
 
   }, [isAuthenticated])
