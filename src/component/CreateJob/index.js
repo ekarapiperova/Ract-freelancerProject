@@ -2,9 +2,6 @@ import { useState,useEffect } from "react";
 
 const CreateJob=({username})=>{
 
-       
-        
-
      const create=(title,description,money,catrgory,data,creator)=>{
         let job={
             title: title,
@@ -14,7 +11,7 @@ const CreateJob=({username})=>{
             toData:data,
             creator:creator
         }
-        console.log(job);
+     
         return fetch('http://localhost:9999/job/',{
             method: 'POST',
             headers:{
@@ -22,6 +19,7 @@ const CreateJob=({username})=>{
             },
             body: JSON.stringify(job)
         })
+       
     
     }
     const onCreateSubmit=(e)=>{
@@ -30,6 +28,7 @@ const CreateJob=({username})=>{
 
         create(title.value, description.value, money.value, category.value,data.value,username)
         .then(()=>useState.history.push('/'))
+        
 
     }
     return(
@@ -37,9 +36,9 @@ const CreateJob=({username})=>{
         <form onSubmit={onCreateSubmit}>
             <fieldset>
                 <h2>Create Job</h2>
-              <p>{username}</p>
+            
                 <p className="field">
-                    <label htmlFor="title">Name</label>
+                    <label htmlFor="title">Title</label>
                     <span className="input">
                         <input type="text" name="title" id="title" placeholder="title" />
                         <span className="actions"></span>
@@ -61,7 +60,7 @@ const CreateJob=({username})=>{
                     </span>
                 </p>
                 <p className="field">
-                    <label htmlFor="data">Data</label>
+                    <label htmlFor="data">To data</label>
                     <span className="input">
                         <input type="text" name="data" id="data" placeholder="data" />
                         <span className="actions"></span>

@@ -1,4 +1,4 @@
-const authenticate =  async(url, body, onSuccess, onFailure) => {
+/*const authenticate =  async(url, body, onSuccess, onFailure) => {
     try {
       const promise = await  fetch(url, {
         method: 'POST',
@@ -26,4 +26,4 @@ const authenticate =  async(url, body, onSuccess, onFailure) => {
   }
   
   
-  export default authenticate
+  export default authenticate*/

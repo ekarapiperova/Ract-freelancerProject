@@ -1,11 +1,14 @@
+
+nav li {
+  display: inline-block;
+}
 nav .listItem {
   
     color: rgb(6, 11, 29);
     text-decoration: none;
     size: 20px;
   }
-  
-  
+ 
   
   nav .listItem {
     display: inline-block;

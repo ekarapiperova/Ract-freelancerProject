@@ -42,7 +42,9 @@ function App() {
     <div className={style.App}>
       
       <Header {...authInfo} />
-      
+      <div className={style.Container}>
+
+     
       <Switch>
         <Route path="/" exact component={Jobs}/>
       <Route path="/job/detail/:id" exact component={JobDetail}/>
@@ -54,11 +56,11 @@ function App() {
       <Route path="/login" exact component={Login}/>
       <Route path="/register" exact component={Register}/>
 
-      <Route path="/profile" exact component={Profile}/>
+      <Route path="/profile" render={props => <Profile {...props} {...authInfo} />}/>
       <Route path="/job/myjobs/" render={props => <MyJobs {...props} {...authInfo} />}/>
 
 
- <Route path="/job/delete/:id" render={props=>{<Delete {...props} {...authInfo}  />  }}/>
+      <Route path="/job/delete/:id" render={props=>{<Delete {...props} {...authInfo}  />  }}/>
 
 
      
@@ -70,7 +72,7 @@ function App() {
 
 
       </Switch>
-        
+         </div>
       <Footer/>
       
     </div>

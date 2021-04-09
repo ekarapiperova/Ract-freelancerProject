@@ -16,6 +16,7 @@
 
 .div div{
     display: inline-block;
+    margin:2em;
 }
 
 .post div {
@@ -32,3 +33,24 @@
     padding-right: 1%;
 }
 
+.buttonEdit{
+   text-align: center; 
+  
+  color: rgb(155, 219, 146);
+  font-size: 1em;
+  padding: 0.25em 0.5em;
+  border: 2px solid rgb(155, 219, 146);
+  border-radius: 3px;
+
+}
+.buttonDelete{
+    text-align: center; 
+
+   color: rgb(180, 52, 80);
+   font-size: 1em;
+   padding: 0.25em 1em;
+   margin-left: 1em;
+   border: 2px solid rgb(180, 52, 80);
+   border-radius: 3px;
+ 
+ }

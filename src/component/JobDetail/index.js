@@ -25,8 +25,7 @@ const JobDetail = ({ match,username }) => {
     return (
        
         <div>
-             <ul>       
-                 {username}     
+             <ul>            
              <Job
                     key={job._id}  
                     id={job._id}

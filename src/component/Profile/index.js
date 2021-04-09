@@ -3,8 +3,10 @@ import MyJobs from '../MyJobs'
 const Profile=({username})=>{
     return(
         <div>
-             <h1>{username}</h1>
-              <Link to='/job/create'>Crate new job</Link>
+             <p>email:<span>{username}</span></p>
+             <p></p>
+              <Link to='/job/create'><button>Crate new job</button></Link>
+              
       
 
         </div>

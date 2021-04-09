@@ -21,7 +21,7 @@ const Delete = ({ match }) => {
           .then(res => setJob(res));
 
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, [match]);
+    }, []);
 
 
 

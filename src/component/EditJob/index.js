@@ -57,7 +57,7 @@ const EditJob=({match,history})=>{
         <form onSubmit={onSaveSubmit}>
             <fieldset>
                 <h2>Edit Job</h2>
-              <p>{}</p>
+        
                 <p className="field">
                     <label htmlFor="title">Name</label>
                   
