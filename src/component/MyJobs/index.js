@@ -24,7 +24,8 @@ const MyJobs=({username})=> {
         return(
            
             <ul>
-                   {jobs.map(x=>
+                   {jobs!=''?
+                    jobs.map(x=>
                     <Job 
                     key={x._id}  
                     id={x._id}
@@ -35,8 +36,11 @@ const MyJobs=({username})=> {
                     toData={x.toData} 
                     creator={x.creator}                 
                     isCreator={true}
-                  />)
+                  />):
+                  <h1> You have no jobs</h1>
 }
+                   
+
                 </ul>
          
         )

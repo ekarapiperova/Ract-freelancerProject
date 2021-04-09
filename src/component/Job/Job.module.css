@@ -2,23 +2,22 @@
     width: 80%;
     height: auto;
     border: 1px solid #234465;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
     border-radius: 4px;
-    padding: 0.5%;
+    padding: 2%;
     font-style: italic;
     /* border:1px solid blue; */
-    margin-bottom: 0.5%;
+ 
     width: 90%;
     display: inline-block;
     vertical-align: top;
-    ;
+    
 }
 
 .div div{
     display: inline-block;
-    margin:2em;
+   
 }
-
 .post div {
     /* border:1px solid red; */
     height: auto;
@@ -35,7 +34,6 @@
 
 .buttonEdit{
    text-align: center; 
-  
   color: rgb(155, 219, 146);
   font-size: 1em;
   padding: 0.25em 0.5em;
@@ -45,12 +43,24 @@
 }
 .buttonDelete{
     text-align: center; 
-
    color: rgb(180, 52, 80);
    font-size: 1em;
    padding: 0.25em 1em;
-   margin-left: 1em;
+   margin: 0.5em;
    border: 2px solid rgb(180, 52, 80);
    border-radius: 3px;
  
+ }
+ .button{
+    text-align: center; 
+   color: rgb(38, 31, 105);
+   font-size: 1em;
+   padding: 0.25em 1em;
+margin-top: 1em;
+   border: 2px solid rgb(47, 79, 182);
+   border-radius: 3px;
+ 
+ }
+ li{
+     display: inline;
  }

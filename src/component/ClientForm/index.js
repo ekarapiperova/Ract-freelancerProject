@@ -23,7 +23,7 @@ const Form=({type,handler })=>{
                                 <i className="fas fa-key"></i>
                             </span>
                         </p>
-                        <input className="button" type="submit" className="submit" value={type} />
+                        <input className={style.button} type="submit" value={type} />
                     </fieldset>
                 </form>
            

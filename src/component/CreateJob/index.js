@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
-
+import style from '../Job/Job.module.css'
+import Form from "../JobForm";
 const CreateJob=({username})=>{
 
      const create=(title,description,money,catrgory,data,creator)=>{
@@ -32,58 +33,12 @@ const CreateJob=({username})=>{
 
     }
     return(
-        <section className="create">
-        <form onSubmit={onCreateSubmit}>
-            <fieldset>
-                <h2>Create Job</h2>
-            
-                <p className="field">
-                    <label htmlFor="title">Title</label>
-                    <span className="input">
-                        <input type="text" name="title" id="title" placeholder="title" />
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="description">Description</label>
-                    <span className="input">
-                        <textarea rows="4" cols="45" type="text" name="description" id="description"
-                            placeholder="Description"></textarea>
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="money">Money</label>
-                    <span className="input">
-                        <input type="text" name="money" id="money" placeholder="money" />
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="data">To data</label>
-                    <span className="input">
-                        <input type="text" name="data" id="data" placeholder="data" />
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="category">Category</label>
-                    <span className="input">
-                        <select type="text" name="category">
-                            <option value="java">Java</option>
-                            <option value="javascript">JavaScript</option>
-                            <option value="c">C#</option>
-                            <option value="html">HTML/CSS</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <span className="actions"></span>
-                    </span>
-                </p>
-              
-                <input className="button submit" type="submit"  value="Add Job" />
-            </fieldset>
-        </form>
-    </section>
+        <Form
+        type="Create"
+        action={onCreateSubmit}
+        
+
+         />
 
     )
     

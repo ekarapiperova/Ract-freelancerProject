@@ -42,8 +42,6 @@ form label {
 	font-weight: bold;
 }
 
-.field {}
-
 
 .field .input {
 	display: flex;
@@ -112,3 +110,13 @@ form textarea:focus {
 	padding: 2rem;
 	overflow: auto;
 }
+.button{
+    text-align: center; 
+   color: rgb(38, 31, 105);
+   font-size: 1em;
+   padding: 0.25em 1em;
+	margin-top: 1em;
+   border: 2px solid rgb(47, 79, 182);
+   border-radius: 3px;
+ 
+ }

@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
-
+import style from '../Job/Job.module.css'
+import Form from '../JobForm/index'
 const EditJob=({match,history})=>{
 
        
@@ -53,61 +54,17 @@ const EditJob=({match,history})=>{
 
     }
     return(
-        <section className="edit">
-        <form onSubmit={onSaveSubmit}>
-            <fieldset>
-                <h2>Edit Job</h2>
-        
-                <p className="field">
-                    <label htmlFor="title">Name</label>
-                  
-                  
-                    <span className="input">
-                        <input type="text" name="title" id="title" defaultValue={job.title}/>
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="description">Description</label>
-                    <span className="input">
-                        <textarea rows="4" cols="45" type="text" name="description" id="description"
-                            defaultValue={job.description}></textarea>
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="money">Money</label>
-                    <span className="input">
-                        <input type="text" name="money" id="money" defaultValue={job.money} />
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="data">Data</label>
-                    <span className="input">
-                        <input type="text" name="data" id="data"defaultValue={job.toData} />
-                        <span className="actions"></span>
-                    </span>
-                </p>
-                <p className="field">
-                    <label htmlFor="category">Category</label>
-                    <span className="input">
-                        <select type="text" name="category" defaultValue={job.category}>
-                            <option value="java">Java</option>
-                            <option value="javascript">JavaScript</option>
-                            <option value="c">C#</option>
-                            <option value="html">HTML/CSS</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <span className="actions"></span>
-                    </span>
-                </p>
-              
-                <input className="button submit" type="submit"  value="Save" />
-            </fieldset>
-        </form>
-    </section>
+        <Form
+        type="Edit"
+        action={onSaveSubmit}
+        title={job.title}
+        description={job.description}
+        money={job.money}
+        category={job.category}
+        toData={job.toData}
 
+         />
+       
     )
     
 }
