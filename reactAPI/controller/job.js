@@ -38,7 +38,7 @@ module.exports = {
             .then((jobs) => {
                 res.send(jobs);
             })
-            .catch(next);
+            .catch( next);
     },
 
     put: (req, res, next) => {

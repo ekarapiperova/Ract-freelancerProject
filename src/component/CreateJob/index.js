@@ -3,7 +3,7 @@ import isAuth from "../../isAuth";
 import AuthContext from "../context/AuthContext";
 import style from '../Job/Job.module.css'
 import Form from "../JobForm";
-const CreateJob=()=>{
+const CreateJob=({history})=>{
     const {username} = useContext (AuthContext );
 
      const create=(title,description,money,catrgory,data,creator)=>{
@@ -27,11 +27,11 @@ const CreateJob=()=>{
     
     }
     const onCreateSubmit=(e)=>{
-        
+        e.preventDefault();        
         const {title,description,money,category,data}=e.target;
-
         create(title.value, description.value, money.value, category.value,data.value,username)
-        .then(()=>useState.history.push('/job/myjobs'))
+        .then(()=>history.push('/'))   
+        .catch(err=>console.error(err))      
         
 
     }

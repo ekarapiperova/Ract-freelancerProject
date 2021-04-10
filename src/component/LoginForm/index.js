@@ -7,11 +7,14 @@ const Login=({history})=>{
         const email=e.target.email.value;
         const password=e.target.password.value;
         console.log(email,password);
-
         auth.signInWithEmailAndPassword(email,password)
         .then((userCredential)=>{
            // console.log(userCredential);
             history.push('/')
+        })
+        .catch((error) => {
+            console.log(error);
+            alert(error.message);
         })
     }
 

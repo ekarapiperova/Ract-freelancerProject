@@ -14,10 +14,12 @@ import { useEffect, useState } from 'react';
 import Profile from './component/Profile';
 import MyJobs from './component/MyJobs';
 import EditJob from './component/EditJob';
-import Delete from './component/Delete';
+
 import CustomErrorBoundry from './component/CustomErrorBoundry';
 import AuthContext from './component/context/AuthContext';
 import isAuth from './isAuth';
+import Error from './component/Error';
+
 function App() {
 
   const[user,setUser]=useState(null);
@@ -29,44 +31,53 @@ function App() {
     isAuthenticated: Boolean(user),
     username: user?.email,
   };
-  const deleteJob=({id})=>{
-    return fetch(`http://localhost:9999/job/${id}`,{
+  
+  const deleteJob=({match})=>{
+    const id=match.params.id
+    console.log(id);
+    fetch(`https://localhost:9999/job/${id}`, {
       method: 'DELETE',
       headers:{
           'Content-Type':   "application/json" 
       },
-   
-  })
-
+      body: JSON.stringify()
   }
+    )
+    .then(res=>res.json())
+}
+
+  
 
 
   return (
     <div className={style.App}>
      <AuthContext.Provider value={authInfo}>
-             <Header />
-     
+       <Header />
+      <div className={style.Container}>
 
+    
       <CustomErrorBoundry>
       <Switch>
         <Route path="/" exact component={Jobs}/>
       <Route path="/job/detail/:id" exact component={JobDetail}/>
 
-      <Route path="/job/edit/:id" component={isAuth(EditJob)}/>
+      <Route path="/job/edit/:id" exact component={isAuth(EditJob)}/>
 
-      <Route path="/job/create" component={isAuth(CreateJob)}/>
+      <Route path="/job/create" exact component={isAuth(CreateJob)}/>
 
       <Route path="/login" exact component={Login}/>
-      <Route path="/register" exact component={Register}/>
+      <Route path="/register"  component={Register}/>
 
-      <Route path="/profile" component={isAuth(Profile)}/>
-      <Route path="/job/myjobs/" component={isAuth(MyJobs)}/>
-
-
-      <Route path="/job/delete/:id" component={isAuth(Delete)}/>
+      <Route path="/profile" exact component={isAuth(Profile)}/>
+      <Route path="/job/myjobs/" exact component={isAuth(MyJobs)}/>
 
 
-     
+      <Route path="/job/delete/:id" render={props=>{
+        deleteJob(props);
+        return<Redirect to='/'/>
+
+      }}/>
+          
       <Route path="/logout" render={props=>{
         auth.signOut();
         return<Redirect to='/'/>
@@ -76,7 +87,7 @@ function App() {
 
       </Switch>  
       </CustomErrorBoundry>
-      
+      </div>      
       <Footer/>
     </AuthContext.Provider>
     </div>

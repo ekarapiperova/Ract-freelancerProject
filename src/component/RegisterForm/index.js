@@ -1,5 +1,6 @@
 import {auth} from '../../utils/firebase'
 import Form from '../ClientForm';
+import Error from '../Error';
 
 const Register=({
     history
@@ -15,6 +16,11 @@ const Register=({
         .then(userCredential=>{
             console.log('Reister');
             history.push('/')
+        })
+        .catch((error) => {
+            console.log(error);
+            alert(<Error
+                error={error.message}/>);
         })
     }
     return(

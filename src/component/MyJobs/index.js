@@ -3,6 +3,7 @@ import Job from '../Job'
 import { useEffect, useState,useContext } from 'react'
 import isAuth from '../../isAuth'
 import AuthContext from '../context/AuthContext';
+import style from './index.module.css'
 
 const MyJobs=()=> {
     const {username} = useContext(AuthContext);
@@ -27,7 +28,12 @@ const MyJobs=()=> {
         return(
            
             <ul>
-                <h1>{username}'s jobs</h1>
+                <div className={style.div}>
+                    <h2>{username}'s jobs </h2>
+                   <h3>Total: {jobs.length}</h3>
+                
+                </div>
+                
                    {jobs!=''?
                     jobs.map(x=>
                     <Job 
@@ -41,7 +47,7 @@ const MyJobs=()=> {
                     creator={x.creator}                 
                     isCreator={true}
                   />):
-                  <h1> You have no jobs</h1>
+                  <h1> {username} have no jobs</h1>
 }
                    
 

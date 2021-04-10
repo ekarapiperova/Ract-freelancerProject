@@ -3,7 +3,7 @@ import style from './index.module.css'
 const Form=({type,handler })=>{
    
     return(
-       
+        <section className={style}>
                 <form onSubmit={handler}>
                     <fieldset>
                         <legend>{type}</legend>
@@ -26,6 +26,7 @@ const Form=({type,handler })=>{
                         <input className={style.button} type="submit" value={type} />
                     </fieldset>
                 </form>
+          </section>
            
 
     )

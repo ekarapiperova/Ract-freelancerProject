@@ -6,6 +6,13 @@ const EditJob=({match,history})=>{
 
        
     const id=match.params.id;
+    let [job, setJob] = useState({});
+    useEffect(() => {
+
+        getOne(id)
+            .then(res => setJob(res));
+    }, [match]);
+
     const getOne = (id) => {
         let url = `http://localhost:9999/job/${id}`
         
@@ -14,13 +21,7 @@ const EditJob=({match,history})=>{
             .catch(error => console.log(error))
     }
 
-    let [job, setJob] = useState({});
-    useEffect(() => {
-
-        getOne(id)
-            .then(res => setJob(res));
-    }, [match]);
-
+    
      const edit=(title,description,money,catrgory,data)=>{
         let job={
             title: title,
@@ -41,13 +42,14 @@ const EditJob=({match,history})=>{
     
     }
     const onSaveSubmit=(e)=>{
+        e.preventDefault();
         
         const {title,description,money,category,data}=e.target;
 
         edit(title.value, description.value, money.value, category.value,data.value)
         .then(()=>
         {
-            history.push(`/jobs/details/${id}`)
+            history.push(`/`)
             return
         })
         

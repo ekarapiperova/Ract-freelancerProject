@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import style from './Job.module.css'
-const Job = ({ id, title, category, money, creator, description, toData, detail,isCreator}) => {
+const Job = ({ id, title, category, money, creator, description, toData, detail,isCreator}) => {   
+   
     return (
 
         <li className={style}>
@@ -24,7 +25,7 @@ const Job = ({ id, title, category, money, creator, description, toData, detail,
                 : <p>Send email to: {creator} </p>
                 }
                 {detail?
-                 <Link to={`/job/detail/${id}`}><button className={style.button}>More Info</button></Link>:''
+                 <Link to={`/job/detail/${id}`}><button className={style.button} >More Info</button></Link>:''
                 } 
             </div>
         </li>
