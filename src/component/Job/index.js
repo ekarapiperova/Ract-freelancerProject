@@ -8,7 +8,7 @@ const Job = ({ id, title, category, money, creator, description, toData, detail,
 
             <div className={style.post}>
                 <div className={style.div}>
-                    <h3> {title}</h3>
+                    <h3 className='h3'> {title}</h3>
                 </div>
                 {description ? <p>Description:{description}</p> : ''}
                 <p>Category: {category}</p>

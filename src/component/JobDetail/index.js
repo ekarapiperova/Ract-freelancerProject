@@ -10,7 +10,7 @@ const JobDetail = ({ match,username }) => {
 
         return fetch(url)
             .then(res => res.json())
-            .catch(error => console.log(error))
+            
     }
 
     let [job, setJob] = useState({});
@@ -42,6 +42,8 @@ const JobDetail = ({ match,username }) => {
                
 
                  </ul>
+
+         <Link to='/' ><button className={style.button}>Back to All</button></Link>
          
         </div>
 

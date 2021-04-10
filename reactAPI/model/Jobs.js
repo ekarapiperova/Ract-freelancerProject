@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema, model: Model } = mongoose;
-const { String, Number, ObjectId } = Schema.Types;
+const { String, Number, ObjectId ,Date} = Schema.Types;
 
 const JobSchema = new Schema({
 

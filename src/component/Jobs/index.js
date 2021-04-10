@@ -25,7 +25,7 @@ class Jobs extends React.Component{
     render(){
         return(
             <div className={style.jobslist}>
-                <h1>All Jobs</h1>
+                <h1 className={style.h1}>All Jobs</h1>
             <ul>
                    {this.state.jobs.map(x=>
                     <Job 

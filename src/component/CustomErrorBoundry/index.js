@@ -13,11 +13,11 @@ class CustomErrorBoundry extends React.Component{
         }
 
     }
-    componentDidCatch(error,errorInfo){
-        console.log('Error from commponenet didCatch',error);
-    }
+    
     render(){
-        return this.props.children;
+        if (this.state.hasError) {
+            return <h1>I'm soo sorry</h1>
+        }
     }
 }
 export default CustomErrorBoundry
