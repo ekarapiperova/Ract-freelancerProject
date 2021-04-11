@@ -15,10 +15,10 @@ import Profile from './component/Profile';
 import MyJobs from './component/MyJobs';
 import EditJob from './component/EditJob';
 
-import CustomErrorBoundry from './component/CustomErrorBoundry';
 import AuthContext from './component/context/AuthContext';
 import isAuth from './isAuth';
 import Error from './component/Error';
+import CustomErrorBoundary from './component/CustomErrorBoundry';
 
 function App() {
 
@@ -56,7 +56,7 @@ function App() {
       <div className={style.Container}>
 
     
-      <CustomErrorBoundry>
+    <CustomErrorBoundary>
       <Switch>
         <Route path="/" exact component={Jobs}/>
       <Route path="/job/detail/:id" exact component={JobDetail}/>
@@ -86,7 +86,7 @@ function App() {
 
 
       </Switch>  
-      </CustomErrorBoundry>
+      </CustomErrorBoundary>
       </div>      
       <Footer/>
     </AuthContext.Provider>
