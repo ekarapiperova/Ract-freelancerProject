@@ -2,21 +2,15 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Job from '../Job';
 import style from './index.module.css'
+
+import * as jobsService from '../../utils/jobsService'
 const JobDetail = ({ match,username }) => {
     const id=match.params.id;
-    const getOne = (id) => {
-        let url = `http://localhost:9999/job/${id}`
-        console.log(match.params.id);
-
-        return fetch(url)
-            .then(res => res.json())
-            
-    }
-
+    
     let [job, setJob] = useState({});
     useEffect(() => {
 
-        getOne(id)
+        jobsService.getOne(id)
             .then(res => setJob(res));
     }, [match]);
 

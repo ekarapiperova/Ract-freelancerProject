@@ -4,22 +4,16 @@ import { useEffect, useState,useContext } from 'react'
 import isAuth from '../../isAuth'
 import AuthContext from '../context/AuthContext';
 import style from './index.module.css'
+import * as jobsService from '../../utils/jobsService'
+
 
 const MyJobs=()=> {
     const {username} = useContext(AuthContext);
-    const getByCreator = (user) => {
-        let url = `http://localhost:9999/job/myjobs/${user}`
     
-
-        return fetch(url)
-            .then(res => res.json())
-            .catch(error => console.log(error))
-    }
-
     let [jobs, setJobs] = useState([]);
     useEffect(() => {
 
-        getByCreator(username)
+      jobsService.getByCreator(username)
             .then(res => setJobs(res))
     }, []);
 

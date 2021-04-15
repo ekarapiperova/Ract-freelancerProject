@@ -17,7 +17,7 @@ import EditJob from './component/EditJob';
 
 import AuthContext from './component/context/AuthContext';
 import isAuth from './isAuth';
-import Error from './component/Error';
+
 import CustomErrorBoundary from './component/CustomErrorBoundry';
 
 function App() {
@@ -55,7 +55,6 @@ function App() {
        <Header />
       <div className={style.Container}>
 
-    
     <CustomErrorBoundary>
       <Switch>
         <Route path="/" exact component={Jobs}/>

@@ -2,6 +2,8 @@ import { useState,useEffect } from "react";
 import isAuth from "../../isAuth";
 import style from '../Job/Job.module.css'
 import Form from '../JobForm/index'
+import * as jobsService from '../../utils/jobsService'
+
 const EditJob=({match,history})=>{
 
        
@@ -9,44 +11,17 @@ const EditJob=({match,history})=>{
     let [job, setJob] = useState({});
     useEffect(() => {
 
-        getOne(id)
+        jobsService.getOne(id)
             .then(res => setJob(res));
     }, [match]);
-
-    const getOne = (id) => {
-        let url = `http://localhost:9999/job/${id}`
-        
-        return fetch(url)
-            .then(res => res.json())
-            .catch(error => console.log(error))
-    }
-
-    
-     const edit=(title,description,money,catrgory,data)=>{
-        let job={
-            title: title,
-            description: description,
-            money: money,
-            category: catrgory,
-            toData:data,
-            
-        }
-      
-        return fetch(`http://localhost:9999/job/${id}`,{
-            method: 'PUT',
-            headers:{
-                'Content-Type':   "application/json" 
-            },
-            body: JSON.stringify(job)
-        })
-    
-    }
+       
+     
     const onSaveSubmit=(e)=>{
         e.preventDefault();
         
         const {title,description,money,category,data}=e.target;
 
-        edit(title.value, description.value, money.value, category.value,data.value)
+        jobsService.editJob(id,title.value, description.value, money.value, category.value,data.value)
         .then(()=>
         {
             history.push(`/`)

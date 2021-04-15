@@ -1,6 +1,6 @@
 import React from 'react'
 import Job from '../Job'
-
+import * as jobsService from '../../utils/jobsService'
 import style from './Jobs.index.css'
 class Jobs extends React.Component{
     constructor(props){
@@ -9,16 +9,9 @@ class Jobs extends React.Component{
             jobs:[]
         }
     }
-    getJobs=()=>{
-        let url=`http://localhost:9999/job`    
-        return fetch(url)
-       .then(res=>res.json())
-       .catch(error=>console.log(error))
-
-    }
-    
+       
     componentDidMount(){
-        this.getJobs()
+        jobsService.getJobs()
         .then(res=>this.setState({jobs:res}))
     }
     
