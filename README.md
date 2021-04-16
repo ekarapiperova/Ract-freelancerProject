@@ -1,8 +1,11 @@
 # This is Freelancer App
+In this app you can share jobs offer
 
-local restApi for job data element with mongodb
-for user authentication cloud firebase
-
+Guest can see all offerts
+You can :
+  create offer
+ see your all offerts 
+ edit your jobs
 ## 1.Start New Application
 npx create-react-app .
 work on port 3000
@@ -59,6 +62,7 @@ class Jobs extends React.Component{
 
 ## 7. Create My Jobs page / view jobs offer by creatir id with hooks
 
+
 const MyJobs=()=> {
     const {username} = useContext(AuthContext);
     
@@ -67,9 +71,7 @@ const MyJobs=()=> {
 
       jobsService.getByCreator(username)
             .then(res => setJobs(res))
-    }, []);
-
-    
+    }, []);    
     
         return(
            
@@ -118,7 +120,8 @@ crate Create and Edit form with ClientForm
 
 ## 11. Add Contol Component isAuth.js
 
-hold info about islogged user
+hold info about islogged user 
+
 const isAuth = (WrappedComponent) => {
 
     const Component = (props) => {
@@ -143,6 +146,7 @@ Context provides way to pass data through the component tree without  passing th
 const AuthContext = React.createContext({});
 
 add Context to header
+
  const { isAuthenticated, username }=useContext(AuthContext)
   useEffect(() => {
     if (!isAuthenticated) {

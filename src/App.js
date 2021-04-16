@@ -19,7 +19,7 @@ import AuthContext from './component/context/AuthContext';
 import isAuth from './isAuth';
 
 import CustomErrorBoundary from './component/CustomErrorBoundry';
-import * as jobsService from '../../utils/jobsService'
+import * as jobsService from '../src/utils/jobsService'
 
 
 function App() {
