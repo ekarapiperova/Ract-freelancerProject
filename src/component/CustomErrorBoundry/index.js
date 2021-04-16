@@ -5,7 +5,8 @@ class CustomErrorBoundary extends React.Component {
         super(props);
 
         this.state = {
-            hasError: false
+            hasError: false,
+            error:''
         };
     }
 

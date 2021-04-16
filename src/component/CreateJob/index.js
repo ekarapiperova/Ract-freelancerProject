@@ -13,7 +13,10 @@ const CreateJob=({history})=>{
         const {title,description,money,category,data}=e.target;
         jobsService.create(title.value, description.value, money.value, category.value,data.value,username)
         .then(()=>history.push('/'))   
-        .catch(err=>console.error(err))      
+        .catch((error)=>{
+            this.setState({ error });
+          })
+             
         
 
     }

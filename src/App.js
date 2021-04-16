@@ -19,6 +19,8 @@ import AuthContext from './component/context/AuthContext';
 import isAuth from './isAuth';
 
 import CustomErrorBoundary from './component/CustomErrorBoundry';
+import * as jobsService from '../../utils/jobsService'
+
 
 function App() {
 
@@ -32,20 +34,6 @@ function App() {
     username: user?.email,
   };
   
-  const deleteJob=({match})=>{
-    const id=match.params.id
-    console.log(id);
-    fetch(`https://localhost:9999/job/${id}`, {
-      method: 'DELETE',
-      headers:{
-          'Content-Type':   "application/json" 
-      },
-      body: JSON.stringify()
-  }
-    )
-    .then(res=>res.json())
-}
-
   
 
 
@@ -72,7 +60,7 @@ function App() {
 
 
       <Route path="/job/delete/:id" render={props=>{
-        deleteJob(props);
+        jobsService.deleteJob(props);
         return<Redirect to='/'/>
 
       }}/>

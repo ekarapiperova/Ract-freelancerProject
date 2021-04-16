@@ -27,7 +27,7 @@ const EditJob=({match,history})=>{
             history.push(`/`)
             return
         })
-        
+       
         
 
     }

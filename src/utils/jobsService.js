@@ -58,5 +58,21 @@ export const editJob=(id,title,description,money,catrgory,data)=>{
         },
         body: JSON.stringify(job)
     })
+    .catch((error) => {
+        // Handle the error
+        console.log(error);
+      });
 
+}
+export const deleteJob=(id)=>{
+   
+    fetch(`https://localhost:9999/job/${id}`, {
+      method: 'DELETE',
+      headers:{
+          'Content-Type':   "application/json" 
+      },
+      body: JSON.stringify()
+  }
+    )
+    .then(res=>res.json())
 }
