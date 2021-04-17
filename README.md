@@ -3,9 +3,9 @@ In this app you can share jobs offer
 
 Guest can see all offerts
 You can :
-  create offer
- see your all offerts 
- edit your jobs
+create offer;
+see your all offerts ;
+edit your jobs;
 ## 1.Start New Application
 npx create-react-app .
 work on port 3000
